@@ -1,5 +1,7 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line prettier/prettier
 export default class SaveTaskDto {
-  id: null | number;
-
+  id?: number;
   name: string;
+  categoryId: number;
 }

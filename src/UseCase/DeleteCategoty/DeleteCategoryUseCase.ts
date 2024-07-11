@@ -2,15 +2,15 @@
 import { BadRequestException } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { UseCase } from '../../index';
-import TaskRepository from '../../Repositories/TaskRepository';
+import CategoryRepository from 'src/Repositories/CategoryRepository';
 
 @Injectable()
-export default class DeleteTask implements UseCase<Promise<boolean>, [id: number]> {
-  constructor(private readonly taskRepository: TaskRepository) {}
+export default class DeleteCategoryUseCase implements UseCase<Promise<boolean>, [id: number]> {
+  constructor(private readonly categoryRepository: CategoryRepository) {}
 
   async handle(id: number) {
     try {
-      await this.taskRepository.delete(id);
+      await this.categoryRepository.delete(id);
       return true;
     } catch (error) {
       throw new BadRequestException(error.message);
